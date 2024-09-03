@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 
 :root {
-  --primaryTextColor: #232e35;
-  --secondaryTextColor: #656d72;
+  --primaryTextColor: #232e35; /* Untuk title atau judul */
+  --secondaryTextColor: #656d72; /* Untuk text biasa seperti paragraph contohnya */
 
   --borderColor: #f1f1f1;
-  --lineColor: #d9d9d9;
+  --lineColor: #d9d9d9; /* untuk line di pre-title */
 
   --primaryBackgroundColor: #fff;
   --secondaryBackgroundColor: #fbfbfb;
@@ -23,6 +23,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -40,8 +41,8 @@ strong {
 }
 
 p {
-  font-size: 1rem; /*  16 px */
-  line-height: 1.9 rem;
+  font-size: 1rem; /* 16 px */
+  line-height: 1.9rem; /*30.4 px */
 }
 
 p,
@@ -57,6 +58,8 @@ a {
   text-decoration: none;
 }
 
+/* End Preparation */
+
 .main-container {
   width: 1200px;
   margin: 0 auto;
@@ -67,6 +70,7 @@ a {
     width: 90%;
   }
 }
+
 /* Buttons */
 .btn {
   padding: 1rem 1.5rem;
@@ -84,8 +88,8 @@ a {
 .section-title {
   margin: 1rem 0 4rem;
   font-size: 2rem;
-  font-weight: 700;
 }
+
 .pre-title {
   text-transform: uppercase;
   letter-spacing: 0.5rem;
@@ -108,25 +112,28 @@ a {
   top: 50%;
 }
 
-/* Layout */
+/* Layouts */
 .grid-3 {
   display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; use this first, use code below when its time for explaining responsive design part */
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 3rem;
 }
-/* Logo And Navigation Menu */
 
+/* --- Logo and Navigation Menu --- */
 .nav {
   display: flex;
   justify-content: space-between;
   padding: 2rem 0;
 }
 
-.nav ul {
+nav ul {
   list-style: none;
   display: flex;
   gap: 3rem;
 }
+
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -138,6 +145,7 @@ a {
   color: var(--primaryTextColor);
 }
 
+/* Navigation Menu */
 nav ul li {
   display: flex;
   align-items: center;
@@ -147,8 +155,7 @@ nav ul li a {
   color: var(--primaryTextColor);
 }
 
-/* Burger */
-
+/* Burger - Save for later on video */
 .burger div {
   width: 25px;
   height: 2px;
@@ -163,7 +170,7 @@ nav ul li a {
   z-index: 99;
   position: fixed;
   top: 33px;
-  right: 33px;
+  right: 35px;
 }
 
 /* Hero Section */
@@ -171,6 +178,7 @@ nav ul li a {
   height: 720px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  /* We're not going to use automatic template columns, because we need to know when the columns is go below. So we can exchange the order of the element */
   align-items: center;
 }
 
@@ -181,7 +189,7 @@ nav ul li a {
 }
 
 .hero-name span {
-  color: var(--primaryIconColor);
+  color: var(--primaryIconColor) !important;
 }
 
 .hero-right img {
@@ -194,7 +202,6 @@ nav ul li a {
 }
 
 /* Services Section */
-
 #services {
   background-color: var(--secondaryBackgroundColor);
   padding: var(--sectionPadding);
@@ -233,22 +240,36 @@ nav ul li a {
   fill: var(--primaryIconColor);
 }
 
-/* Porfolios Section */
+.service-icon {
+  background: var(--thirdBackgroundColor);
+  width: fit-content;
+  margin: 0 auto;
+  padding: 1rem 1.3rem;
+  border-radius: 0.5rem;
+}
 
+.service-icon svg {
+  fill: var(--primaryIconColor);
+}
+
+/* Portfolios */
 #portfolios {
   padding: var(--sectionPadding);
 }
+
 .portfolio {
   border-radius: var(--itemBorderRadius);
-  overflow: hidden;
+  overflow: hidden; /* supaya gambar yang diatas itu dia ngikut border radiusnya, karena yang dikasih border radius disini adalah div portfolio ini */
   border: 1px solid var(--borderColor);
 }
+
 .portfolio-cover {
   height: 250px;
 }
-.portfolio-cover img {
-  height: 100%;
+
+.portfolio img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -271,6 +292,7 @@ nav ul li a {
 .portfolio-title a svg:hover {
   fill: var(--primaryIconColor);
 }
+
 .portfolio-title a svg {
   transition: 0.2s ease-in-out;
 }
@@ -287,7 +309,15 @@ nav ul li a {
   padding: 0.4rem 1rem;
   color: var(--secondaryTextColor);
 }
-/* Skills N Education */
+
+.portfolio-tags div {
+  font-size: 0.9rem;
+  border: 1px solid var(--borderColor);
+  padding: 0.4rem 1rem;
+  color: var(--secondaryTextColor);
+}
+
+/* Skills and Education */
 #skills {
   padding: var(--sectionPadding);
   background: var(--secondaryBackgroundColor);
@@ -295,17 +325,20 @@ nav ul li a {
 
 .skills-grid {
   display: grid;
+  /* grid-template-columns: 40% 60%; */
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 3rem;
 }
 
 .education {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
 }
+
 .education .line {
-  padding: 0.7rem;
+  padding: 0 0.7rem;
 }
+
 .education .line div {
   width: 2px;
   height: 100%;
@@ -318,11 +351,11 @@ nav ul li a {
 }
 
 .education-years {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
-/* The Dot On The Line */
-.education .line div::before {
+/* The dot on the line */
+.education .line div:before {
   content: "";
   width: 15px;
   height: 15px;
@@ -332,6 +365,7 @@ nav ul li a {
   left: -6px;
 }
 
+/* Right side of Skills */
 .skills-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -343,14 +377,14 @@ nav ul li a {
   padding: 0 1rem;
 }
 
-/* Contact Section  */
-
+/* Contact Section */
 #contact {
   padding: var(--sectionPadding);
 }
 
 .contact {
   display: grid;
+  /* grid-template-columns: 1fr 1fr; */
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 3rem;
 }
@@ -367,6 +401,7 @@ nav ul li a {
   background: var(--secondaryBackgroundColor);
   border: 1px solid var(--borderColor);
   border-radius: 3px;
+  resize: none;
 }
 
 .contact-form input::placeholder,
@@ -383,7 +418,7 @@ nav ul li a {
 .btn-submit {
   width: 100%;
   padding: 0.75rem 1.3rem;
-  background: var(--primaryIconColor);
+  background-color: var(--primaryIconColor);
   color: #fff;
   border: none;
   border-radius: 3px;
@@ -392,30 +427,36 @@ nav ul li a {
 }
 
 .btn-submit:hover {
-  background: var(--primaryIconColorHover);
+  background-color: var(--primaryIconColorHover);
 }
+
+/* Contact Section - Right Side */
 .contact-item {
   display: flex;
   gap: 1.5rem;
   margin-bottom: 2.5rem;
 }
+
 .contact-item-icon {
   background: var(--thirdBackgroundColor);
+  /* padding: 0.8rem 1rem; */
   width: 53px;
   height: 53px;
   border-radius: 9px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
+
 .contact-item-icon svg {
   fill: var(--primaryIconColor);
 }
+
 .contact-item-detail h4 {
   margin-bottom: 0.6rem;
 }
 
-/*  Footer Section */
+/* Footer Section */
 footer {
   padding: 4rem 0;
   background: var(--secondaryBackgroundColor);
@@ -425,13 +466,15 @@ footer {
 .footer-icons {
   margin-bottom: 1rem;
 }
+
 .footer-icons a {
-  margin: 0 .5rem;
+  margin: 0 0.5rem;
 }
-.footer-icons svg:hover {
-  fill: #000;
-}
+
 .footer-icons svg {
   fill: #3e3f40;
 }
 
+.footer-icons a:hover svg {
+  fill: #000;
+}
