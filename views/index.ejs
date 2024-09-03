@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <!-- Tambahkan AOS CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+    />
+    <title>Muhamad Fadhlan | Software Engineer</title>
+  </head>
+  <body data-aos="fade-up" data-aos-duration="500" data-aos-delay="0">
+    <!-- Header -->
+    <header>
+      <div class="main-container">
+        <!-- Nav -->
+        <%- include('partials/nav') %>
+        <!-- Hero  -->
+        <%- include('partials/hero') %>
+      </div>
+    </header>
+    <!-- End Of Header -->
+    <!-- Services -->
+    <%- include('partials/services') %>
+    <!-- End Of Services -->
+    <!-- PortFolio -->
+    <%- include('partials/porto') %>
+    <!-- End Of Portfolio -->
+    <!-- SKills And Education -->
+    <%- include('partials/skills') %>
+    <!-- End Of Skills And Education -->
+    <!-- Contact  -->
+    <%- include('partials/contact') %>
+    <!-- End Of Contact -->
+    <!-- Footer -->
+    <%- include('partials/footer') %>
+    <!-- End Of Footer -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="/js/main.js"></script>
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
