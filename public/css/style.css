@@ -387,8 +387,15 @@ nav ul li a {
   /* grid-template-columns: 1fr 1fr; */
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 3rem;
+  position: relative;
+  /* background-color: rgb(12, 0, 0); */
 }
-
+.contact h2.pre-title {
+  position: absolute;
+  font-weight: 700;
+  top: -3rem;
+  
+}
 .contact-form div {
   margin-bottom: 1.4rem;
 }
